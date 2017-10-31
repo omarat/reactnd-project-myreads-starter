@@ -22,8 +22,8 @@ class BookList extends Component{
               <div className="bookshelf-books">
                 <ol className="books-grid">
                   {this.props.books.filter((book)=>book.shelf==='currentlyReading').map((book)=>
-                    <li>
-                    <Book moveHandler={this.props.moveToShelf} shelf={book.shelf} id={book.id} title={book.title} author={book.author} coverURL={book.coverURL}/>
+                    <li key={book.id}>
+                    <Book moveHandler={this.props.moveToShelf} book={book}/>
                   </li>
                   )}
                 </ol>
@@ -34,8 +34,8 @@ class BookList extends Component{
               <div className="bookshelf-books">
                 <ol className="books-grid">
                   {this.props.books.filter((book)=>book.shelf==='wantToRead').map((book)=>
-                    <li>
-                    <Book moveHandler={this.props.moveToShelf} shelf={book.shelf} id={book.id} title={book.title} author={book.author} coverURL={book.coverURL}/>
+                    <li key={book.id}>
+                    <Book moveHandler={this.props.moveToShelf} book={book}/>
                   </li>
                   )}
                 </ol>
@@ -46,8 +46,8 @@ class BookList extends Component{
               <div className="bookshelf-books">
                 <ol className="books-grid">
                   {this.props.books.filter((book)=>book.shelf==='read').map((book)=>
-                    <li>
-                    <Book moveHandler={this.props.moveToShelf} shelf={book.shelf} id={book.id} title={book.title} author={book.author} coverURL={book.coverURL}/>
+                    <li key={book.id}>
+                    <Book moveHandler={this.props.moveToShelf} book={book}/>
                   </li>
                   )}
                 </ol>
