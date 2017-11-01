@@ -8,7 +8,18 @@ class BookList extends Component{
     books: PropTypes.array.isRequired,
     moveToShelf: PropTypes.func.isRequired
   }
+  compare(a,b){
+    var nameA = a.title.toUpperCase();
+    var nameB = b.title.toUpperCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
 
+    return 0;
+  }
   render(){
     return(
       <div className="list-books">
@@ -21,7 +32,7 @@ class BookList extends Component{
               <h2 className="bookshelf-title">Currently Reading</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  {this.props.books.filter((book)=>book.shelf==='currentlyReading').map((book)=>
+                  {this.props.books.filter((book)=>book.shelf==='currentlyReading').sort(this.compare).map((book)=>
                     <li key={book.id}>
                     <Book moveHandler={this.props.moveToShelf} book={book}/>
                   </li>
@@ -33,7 +44,7 @@ class BookList extends Component{
               <h2 className="bookshelf-title">Want to Read</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  {this.props.books.filter((book)=>book.shelf==='wantToRead').map((book)=>
+                  {this.props.books.filter((book)=>book.shelf==='wantToRead').sort(this.compare).map((book)=>
                     <li key={book.id}>
                     <Book moveHandler={this.props.moveToShelf} book={book}/>
                   </li>
@@ -45,7 +56,7 @@ class BookList extends Component{
               <h2 className="bookshelf-title">Read</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  {this.props.books.filter((book)=>book.shelf==='read').map((book)=>
+                  {this.props.books.filter((book)=>book.shelf==='read').sort(this.compare).map((book)=>
                     <li key={book.id}>
                     <Book moveHandler={this.props.moveToShelf} book={book}/>
                   </li>
