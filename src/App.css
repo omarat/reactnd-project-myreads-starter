@@ -172,3 +172,13 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+
+.noresults{
+
+  height: 100px;
+  display:block;
+    margin:auto;
+}
+.noresults-legend{
+  text-align: center;
+}
