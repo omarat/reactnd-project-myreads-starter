@@ -23,6 +23,7 @@ class Book extends Component{
           </div>
         </div>
         <div className="book-title">{book.title}</div>
+        {/* Displays multiple authors if there are any */}
         {book.authors&&book.authors.map((author)=>
             <div key={author} className="book-authors">{author}</div>
         )}

@@ -9,17 +9,7 @@ class BookLibrary extends Component{
     shelves:PropTypes.array.isRequired,
     moveToShelf: PropTypes.func.isRequired
   }
-  compare(a,b){
-    var nameA = a.title.toUpperCase();
-    var nameB = b.title.toUpperCase();
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-    return 0;
-  }
+  
   render(){
     return(
       <div className="list-books">

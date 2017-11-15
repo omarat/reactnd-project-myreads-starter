@@ -11,8 +11,8 @@ class BookShelf extends Component{
   }
   compare(a,b){
     //aux to sort books
-    var nameA = a.title.toUpperCase();
-    var nameB = b.title.toUpperCase();
+    let nameA = a.title.toUpperCase();
+    let nameB = b.title.toUpperCase();
     if (nameA < nameB) {
       return -1;
     }

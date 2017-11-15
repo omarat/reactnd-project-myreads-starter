@@ -22,6 +22,7 @@ class App extends Component {
     )
   }
   moveToShelf = (book,newShelf)=>{
+    //move to new shelf
     if(newShelf!='none'){
       this.setState((state) => ({
         books: state.books.concat([book]).map((b) => {
@@ -29,15 +30,14 @@ class App extends Component {
           return b
         })
       }))
-    }
-    else{
+    } else{
       this.setState((state) => ({
         books: state.books.filter((b) => {
           return b.id!=book.id
         })
       }))
     }
-
+    //update backend
     BooksAPI.update(book,newShelf)
   }
   render() {
